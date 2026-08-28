@@ -1,4 +1,4 @@
-# nl-problems — programming problems with solutions, five public sources
+# nl-problems programming problems with solutions, five public sources
 
 **24,748 problems, 23,319 of them (94.2%) carrying reference solutions.** Normalised to
 one gzipped JSONL per split, one JSON object per line.
@@ -28,7 +28,7 @@ problems that carry none upstream.
 
 ## Reading it
 
-Gzip costs nothing at read time — stream it, never decompress to disk:
+Gzip costs nothing at read time stream it, never decompress to disk:
 
 ```python
 import gzip, json
@@ -50,7 +50,7 @@ git lfs pull          # if data/ files arrive as pointer stubs
 
 ## Schemas
 
-**CodeContests** (`codecontests_*`) — Codeforces, CodeChef, AtCoder, HackerEarth, Aizu.
+**CodeContests** (`codecontests_*`) Codeforces, CodeChef, AtCoder, HackerEarth, Aizu.
 
 | field | type | notes |
 |---|---|---|
@@ -64,36 +64,36 @@ git lfs pull          # if data/ files arrive as pointer stubs
 | `cf_contest_id`, `cf_index` | int, str | |
 | `public_tests` | list[{input,output}] | the samples shown in the statement |
 | `private_tests` | list[{input,output}] | **held-out judge tests** |
-| `generated_tests` | list[{input,output}] | **generated judge tests** — the bulk of the test data |
-| `solutions` | list[{language,solution}] | correct, **capped at 25** — see below |
+| `generated_tests` | list[{input,output}] | **generated judge tests** the bulk of the test data |
+| `solutions` | list[{language,solution}] | correct, **capped at 25** see below |
 | `incorrect_solutions` | list[{language,solution}] | **wrong** submissions, capped at 25 |
 | `time_limit_seconds`, `time_limit_nanos`, `memory_limit_bytes` | int | |
 | `input_file`, `output_file` | str | usually empty (stdin/stdout) |
 | `is_description_translated`, `untranslated_description` | bool, str | |
 
-`language` is one of `PYTHON3`, `PYTHON`, `CPP`, `JAVA`, `UNKNOWN_LANGUAGE` — decoded to
+`language` is one of `PYTHON3`, `PYTHON`, `CPP`, `JAVA`, `UNKNOWN_LANGUAGE` decoded to
 strings here, not the raw ClassLabel integers.
 
 `incorrect_solutions` is worth calling out: these are human-written *wrong* answers to
 problems whose correct answers sit in the same record. That is a ready-made preference
-signal — chosen/rejected pairs grounded in a real judge rather than in a model's opinion.
+signal chosen/rejected pairs grounded in a real judge rather than in a model's opinion.
 
-**APPS** (`apps_raw_*`) — scraped with judge data.
+**APPS** (`apps_raw_*`) scraped with judge data.
 
 | field | type | notes |
 |---|---|---|
 | `id` | int | index within split |
 | `question` | str | problem statement |
-| `solutions` | str | **JSON-encoded string** holding a list — parse a second time |
+| `solutions` | str | **JSON-encoded string** holding a list parse a second time |
 | `input_output` | str | **JSON-encoded string** `{"inputs":[…],"outputs":[…]}` |
 | `difficulty` | str | `introductory` \| `interview` \| `competition` |
 | `url` | str | originating problem page |
 | `starter_code` | str | often empty |
 
 Mind the double encoding: `json.loads(rec["input_output"])` is required. CodeContests
-does *not* share this quirk — its tests are real nested objects.
+does *not* share this quirk its tests are real nested objects.
 
-**HumanEval** — 164 records, matching the canonical size.
+**HumanEval** 164 records, matching the canonical size.
 
 | field | type | notes |
 |---|---|---|
@@ -103,7 +103,7 @@ does *not* share this quirk — its tests are real nested objects.
 | `test` | str | `check(candidate)` harness |
 | `entry_point` | str | function to call |
 
-**MBPP** (`mbpp`, `mbpp_test`, `mbpp_validation`, `mbpp_prompt`) — all four upstream
+**MBPP** (`mbpp`, `mbpp_test`, `mbpp_validation`, `mbpp_prompt`) all four upstream
 splits of the `full` config.
 
 | field | type |
@@ -115,11 +115,11 @@ splits of the `full` config.
 
 ## The solution cap, and how to lift it
 
-CodeContests upstream holds **4,494,491 correct and 8,715,949 incorrect solutions** —
+CodeContests upstream holds **4,494,491 correct and 8,715,949 incorrect solutions**
 20.93 GB as JSONL, which does not fit in GitHub LFS. Solutions are 92.3% of that bulk
 (`incorrect_solutions` 63.4%, `solutions` 28.9%); all the test data together is 7.5%.
 
-So the cap falls only on solutions. **Every problem, and every test, is here in full** —
+So the cap falls only on solutions. **Every problem, and every test, is here in full**
 all 1,307,729 public, private and generated tests. Solutions are capped at 25 correct and
 25 incorrect per problem, preferring `PYTHON3` > `PYTHON` > `CPP` > `JAVA`, which retains
 296,828 correct and 272,311 incorrect.
@@ -134,7 +134,7 @@ It downloads ~7.6 GB of parquet and writes ~20.9 GB of JSONL, with identical fie
 semantics and ClassLabel decoding. The shipped files are a strict subset: same rows, same
 keys, fewer entries in the two solution lists.
 
-## Provenance and licensing — read before redistributing
+## Provenance and licensing read before redistributing
 
 | source | upstream | licence |
 |---|---|---|
@@ -159,7 +159,7 @@ redistributing outside the lab, or shipping any of it in a public model release.
 - **Nothing has been executed.** No solution was run against its own tests to confirm it
   passes, and no `incorrect_solution` was run to confirm it fails. Both labels are taken
   on upstream's word.
-- **`incorrect_solutions` are not labelled by failure mode** — a wrong answer, a timeout
+- **`incorrect_solutions` are not labelled by failure mode** a wrong answer, a timeout
   and a compile error are not distinguished.
 
 ## Integrity
