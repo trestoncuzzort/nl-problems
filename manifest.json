@@ -19,26 +19,26 @@
     {
       "file": "codecontests_test.jsonl.gz",
       "records": 165,
-      "raw_bytes": 392648,
-      "gz_bytes": 100906,
-      "raw_sha256": "a90b35458e33266c1e41e38b6b3adc95907af137989e003684232b41a711dfdf",
-      "gz_sha256": "c5c91b7ea85b8beb7e2df364bfb96aa851f60afe7e17f26ec59ba6bea4ee661b"
+      "raw_bytes": 40710752,
+      "gz_bytes": 5920658,
+      "raw_sha256": "45c610578561c78eddf8407424f309d182bdc35dc737fc209063660c12bffd51",
+      "gz_sha256": "96750994ce4593bf133362294d9c479217d45ee6ca36a21f030701409dffc87d"
     },
     {
       "file": "codecontests_train.jsonl.gz",
       "records": 13328,
-      "raw_bytes": 28262257,
-      "gz_bytes": 8146918,
-      "raw_sha256": "067cdfdfcc296214aa212e2ef4b258927eff407526c33b9415533c502aedde59",
-      "gz_sha256": "ddcd71b680a190e1e5496bc438537c880b4654e14d226ddee62d96e5ab41b27e"
+      "raw_bytes": 2360610956,
+      "gz_bytes": 497504505,
+      "raw_sha256": "f93cd110f738963c22e71891ef0aaa7c083a25c1eb8029ece0d21a88136f8f0d",
+      "gz_sha256": "65decf8bffbb47ae48eb0246e1bd94790c4eb9c19ded620257bbf12e9ef8a3ab"
     },
     {
       "file": "codecontests_valid.jsonl.gz",
       "records": 117,
-      "raw_bytes": 286529,
-      "gz_bytes": 69036,
-      "raw_sha256": "abf2785b73ada385fcf4641a970c82e7a8ea2d90957162a7fd74d394472f2af9",
-      "gz_sha256": "6c5379e6700420f887bcf9975a57641905ea9586ece8b1aa99609fbe0d43660b"
+      "raw_bytes": 49308359,
+      "gz_bytes": 3600711,
+      "raw_sha256": "f8276df6ed185b4a7d97e7ddb2aa286114353c9eda25fddf0e0c9794fca64f7f",
+      "gz_sha256": "2013fd5618476da7d1fb008084906bdb5939d6911a5a92e0496c0e40bf53c1ec"
     },
     {
       "file": "humaneval.jsonl.gz",
@@ -57,13 +57,30 @@
       "gz_sha256": "a258c07a12402eb088dd2ffc79beb27c2851a9215492dd1fd198e1721d734e02"
     },
     {
+      "file": "mbpp_prompt.jsonl.gz",
+      "records": 10,
+      "raw_bytes": 4989,
+      "gz_bytes": 1682,
+      "raw_sha256": "b282102f8728423c6accc8f2727e934479ca28d47740fc964d7a15d8f10489a9",
+      "gz_sha256": "95665f74188a8e7317a50467890d07eeee701b6a7ad094585f922b29e2277995"
+    },
+    {
       "file": "mbpp_test.jsonl.gz",
       "records": 500,
       "raw_bytes": 267053,
       "gz_bytes": 66817,
       "raw_sha256": "e069412c97da40c90a1a9e53c892533f0be26162b8be180c7744cc8e7894476e",
       "gz_sha256": "f29b4441958f7ba326a5d797505574c54c29ee25a8d6b8b04b9b15e4d9c41e61"
+    },
+    {
+      "file": "mbpp_validation.jsonl.gz",
+      "records": 90,
+      "raw_bytes": 46801,
+      "gz_bytes": 12725,
+      "raw_sha256": "a76eccd8a31b91c7bad2ce4c392fcc92449df99e7205e7b14ac7fe127f11ac5d",
+      "gz_sha256": "ff31e9dfcafd00cc5352a54e67a53f71952ead6b94e12a72765cb6f4dcb99f3e"
     }
   ],
-  "total_records": 24648
+  "total_records": 24748,
+  "codecontests_solution_cap": 25
 }
